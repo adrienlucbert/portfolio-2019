@@ -1,7 +1,7 @@
 <template>
     <section class="fade">
         <div>
-            <h1>
+            <h1 ref="title">
                 <span>I am</span>
                 <span id="name" @click="animate">Adrien</span>
                 <span ref="dot">.</span>
@@ -19,9 +19,6 @@
                 <a href="mailto:adrien.lucbert@epitech.eu">
                     <svg-icon name="email"/>
                 </a>
-                <router-link to="portfolio">
-                    <svg-icon name="portfolio"/>
-                </router-link>
             </div>
         </div>
     </section>
@@ -44,10 +41,15 @@ export default {
 </script>
 
 <style scoped>
+section > div {
+    /* Avoid word-wrap in title */
+    width: 60%;
+}
+
 h1 {
-    font-weight: 200;
     font-size: 6.5vw;
-    margin-bottom: 2vw;
+    font-weight: 200;
+    margin-bottom: .2em;
     position: relative;
 }
 
@@ -76,7 +78,7 @@ h1 span:last-child.animate {
 }
 
 .social {
-    font-size: 3vw;
+    font-size: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,5 +93,19 @@ h1 span:last-child.animate {
     transform: scale(1.15);
     outline: 0px solid transparent;
     transition: all .2s ease-in-out;
+}
+
+@media screen and (max-width: 720px) {
+    section > div {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 12vw;
+    }
+
+    .social {
+        font-size: 12vw;
+    }
 }
 </style>

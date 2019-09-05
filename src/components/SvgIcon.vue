@@ -1,7 +1,7 @@
 <template>
     <svg
         :class="`icon icon-${name}`"
-        :title="alt"
+        :title="title || alt"
     >
         <use
             :xlink:href="`/static/assets/symbol-defs.svg#icon-${name}`"
@@ -13,6 +13,7 @@
 export default {
     name: 'svg-icon',
     props: {
+        title: String,
         name: String
     },
     computed: {

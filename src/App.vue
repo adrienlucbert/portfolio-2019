@@ -5,7 +5,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from 'vue'
+import mobileVhFix from '@/utils/mobileVhFix.js'
+
+mobileVhFix();
 
 export default {
   name: 'App'
@@ -50,6 +53,11 @@ body:not(.no-anim) .slide.done { transform: translateX(0) translateY(0); }
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /*
@@ -68,7 +76,8 @@ section:nth-child(even) {
 
 section {
     display:flex;
-    min-height: 100vh;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     font-family: Muli, sans-serif;
     text-align: center;
 }
